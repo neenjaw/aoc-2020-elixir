@@ -3,19 +3,43 @@ defmodule AdventOfCode.Day01Test do
 
   import AdventOfCode.Day01
 
-  @tag :skip
-  test "part1" do
-    input = nil
-    result = part1(input)
+  # @tag :skip
+  test "example" do
+    input = [
+      979,
+      1721,
+      366,
+      299,
+      675,
+      1456
+    ]
 
-    assert result
+    assert 514_579 == part1(input)
   end
 
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
+  test "part1" do
+    value =
+      "./data/day01/part1-input.txt"
+      |> File.stream!([], :line)
+      |> Stream.map(fn x ->
+        x |> String.trim() |> String.to_integer()
+      end)
+      |> part1()
 
-    assert result
+    assert value == 73371
+  end
+
+  # @tag :skip
+  test "part2" do
+    value =
+      "./data/day01/part1-input.txt"
+      |> File.stream!([], :line)
+      |> Stream.map(fn x ->
+        x |> String.trim() |> String.to_integer()
+      end)
+      |> Enum.to_list()
+      |> part2()
+
+    assert value == 127_642_310
   end
 end
